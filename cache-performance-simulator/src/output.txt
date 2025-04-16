@@ -1,0 +1,88 @@
+Browser Cache Simulator with LRU Policy
+=======================================
+
+=== LRU Cache Mechanism Demonstration ===
+Initial empty cache: []
+Step 1: Access https://site1.com - MISS
+Cache state: ['https://site1.com'] (LRU → MRU)
+Step 2: Access https://site2.com - MISS
+Cache state: ['https://site1.com', 'https://site2.com'] (LRU → MRU)
+Step 3: Access https://site3.com - MISS
+Cache state: ['https://site1.com', 'https://site2.com', 'https://site3.com'] (LRU → MRU)
+Step 4: Access https://site4.com - MISS
+Cache state: ['https://site2.com', 'https://site3.com', 'https://site4.com'] (LRU → MRU)
+Step 5: Access https://site2.com - HIT
+Cache state: ['https://site3.com', 'https://site4.com', 'https://site2.com'] (LRU → MRU)
+Step 6: Access https://site1.com - MISS
+Cache state: ['https://site4.com', 'https://site2.com', 'https://site1.com'] (LRU → MRU)
+Step 7: Access https://site2.com - HIT
+Cache state: ['https://site4.com', 'https://site1.com', 'https://site2.com'] (LRU → MRU)
+Step 8: Access https://site5.com - MISS
+Cache state: ['https://site1.com', 'https://site2.com', 'https://site5.com'] (LRU → MRU)
+
+Final cache statistics:
+Total page accesses: 8
+Cache hits: 2
+Cache misses: 6
+Hit rate: 25.00%
+Miss rate: 75.00%
+Loaded 500 URLs from data/traces/browsing_pattern.txt
+
+Browsing Pattern Analysis:
+Total page visits: 500
+Unique websites: 50
+
+Top 5 most visited sites:
+https://site3.com: 33 visits (6.6%)
+https://site0.com: 29 visits (5.8%)
+https://site35.com: 28 visits (5.6%)
+https://site9.com: 27 visits (5.4%)
+https://site19.com: 26 visits (5.2%)
+
+=== Simulating Different Cache Sizes ===
+
+Cache Size: 5
+Total page accesses: 500
+Cache hits: 67
+Cache misses: 433
+Hit rate: 13.40%
+Miss rate: 86.60%
+
+Cache Size: 10
+Total page accesses: 500
+Cache hits: 162
+Cache misses: 338
+Hit rate: 32.40%
+Miss rate: 67.60%
+
+Cache Size: 15
+Total page accesses: 500
+Cache hits: 206
+Cache misses: 294
+Hit rate: 41.20%
+Miss rate: 58.80%
+
+Cache Size: 20
+Total page accesses: 500
+Cache hits: 273
+Cache misses: 227
+Hit rate: 54.60%
+Miss rate: 45.40%
+
+Cache Size: 25
+Total page accesses: 500
+Cache hits: 328
+Cache misses: 172
+Hit rate: 65.60%
+Miss rate: 34.40%
+
+Cache Size: 30
+Total page accesses: 500
+Cache hits: 381
+Cache misses: 119
+Hit rate: 76.20%
+Miss rate: 23.80%
+
+Plotting performance comparison...
+
+Simulation complete. Results saved to browser_cache_performance.png and website_frequency.png
